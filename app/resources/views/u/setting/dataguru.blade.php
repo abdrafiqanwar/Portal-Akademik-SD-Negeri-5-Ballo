@@ -31,13 +31,13 @@
         <td scope="row" class="text-center">{{ $data->name }}</td>
         <td scope="row" class="text-center">{{ $data->user_number }}</td>
         <td scope="row" class="text-center">
-          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-user-number="{{ $data->user_number }}" >
+          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal_{{ $index }}" data-user-number="{{ $data->user_number }}" >
             <img src="{{ asset('img/trash.svg') }}" alt="">
           </button>
         </td>
       </tr>
 
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal fade" id="exampleModal_{{ $index }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <center>
@@ -45,53 +45,24 @@
                         <img src="{{ asset('img/alert_merah.svg') }}" alt="">
                     </div>
                     <div class="modal-body p-0">
-                        <p class="m-0 mt-1" style="font-weight: bold; font-size: 15px">Are you sure want to delete?</p>
-                        <p class="m-0 mt-1" style="font-size: 12px">Data that has been deleted cannot be restored</p>
+                        <p class="m-0 mt-1" style="font-weight: bold; font-size: 15px">Apakah Anda yakin ingin menghapus?</p>
+                        <p class="m-0 mt-1" style="font-size: 12px">Data yang telah dihapus tidak dapat dikembalikan</p>
                     </div>
                     <div class="p-3">
                         <button type="button" class="btn" data-bs-dismiss="modal"
-                            style="border: 1px #3182FB solid">No</button>
-                        <button type="submit" form="delete-form" class="btn btn-danger">Yes</button>
+                            style="border: 1px #3182FB solid">Tidak</button>
+                        <button type="submit" form="delete-form_{{ $index }}" class="btn btn-danger">Ya</button>
                     </div>
                 </center>
             </div>
         </div>
-    </div>
+      </div>
 
-    <form method="POST" action="{{ route('delete-teacher') }}">
-      @csrf
-      @method('DELETE')
-      <input type="hidden" name="user_number" value="{{ $data->user_number }}">
-    </form>
-
-      <!-- Modal -->
-      {{-- <div class="modal fade" id="exampleModal_{{ $index }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Konfirmasi</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <div class="text-center">
-                <img src="{{ asset('img/alert_merah.svg') }}" alt="">
-              </div>
-              <p class="mt-3" style="font-weight: bold; font-size: 15px;">Apakah Anda yakin ingin menghapus?</p>
-              <p style="font-size: 12px;">Data yang dihapus tidak dapat dikembalikan.</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
-              <!-- Formulir untuk penghapusan -->
-              <form method="POST" action="{{ route('delete-teacher') }}">
-                @csrf
-                @method('DELETE')
-                <input type="hidden" name="user_number" value="{{ $data->user_number }}">
-                <button type="submit" class="btn btn-danger">Ya</button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div> --}}
+      <form id="delete-form_{{ $index }}" method="POST" action="{{ route('delete-teacher') }}">
+        @csrf
+        @method('DELETE')
+        <input type="hidden" name="user_number" value="{{ $data->user_number }}">
+      </form>
       @endforeach
     </tbody>
   </table>

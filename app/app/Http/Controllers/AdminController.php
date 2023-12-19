@@ -35,9 +35,7 @@ class AdminController extends Controller
             'school_year' => 'required',
         ]);
 
-        $school_years = new SchoolYear();
-        $school_years->name = $request->input('school_year');
-        $school_years->save();
+        SchoolYear::create($data);
 
         return redirect()->route('tahun')->with('success', 'Tahun ajaran berhasil ditambahkan');
     }
@@ -228,7 +226,6 @@ class AdminController extends Controller
 
         try {
             $userId = User::where('user_number', $userNumber)->value('id');
-
             Teacher::where('user_id', $userId)
             ->where('classess_id', $grade->id)
             ->where('school_years_id', $schoolYear->id)

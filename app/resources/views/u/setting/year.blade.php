@@ -21,7 +21,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="input-group">
-                        <input name='name' type="text" class="form-control border-secondary"
+                        <input name='school_year' type="text" class="form-control border-secondary"
                             placeholder="Masukkan Tahun Ajaran dan Semester" aria-label="Username" aria-describedby="basic-addon1">
                     </div>
                 </div>

@@ -45,7 +45,9 @@ Route::prefix('/u')->group(function(){
     });
     Route::prefix('/nilai')->group(function(){
         Route::get('/', [NilaiController::class, 'readNilai'])->name('nilai')->middleware('teacher');
+        Route::get('/submit-filter', [NilaiController::class, 'index'])->middleware('teacher');
         Route::post('/submit-filter', [NilaiController::class, 'index'])->name('submitnilai')->middleware('teacher');
+        Route::post('/submit-graduation', [NilaiController::class, 'graduate'])->name('submit-graduation')->middleware('admin');
     });
     Route::prefix('/setting')->group(function(){
         Route::get('/', [AdminController::class, 'read'])->name('setting')->middleware('admin');
@@ -58,9 +60,10 @@ Route::prefix('/u')->group(function(){
         Route::get('/guru', [AdminController::class, 'guru'])->name('guru')->middleware('admin');
         Route::post('/submit-guru', [AdminController::class, 'indexguru'])->name('submitguru')->middleware('admin');
         Route::delete('/delete-student', [AdminController::class, 'deleteStudent'])->name('delete-student')->Middleware('admin');
-        Route::delete('/delete-teacher', [AdminController::class, 'deleteTeacher'])->name('delete-teacher')->middleware('admin');
+        Route::delete('/delete-t    eacher', [AdminController::class, 'deleteTeacher'])->name('delete-teacher')->middleware('admin');
         Route::get('/tahun', [AdminController::class, 'tahun'])->name('tahun')->middleware('admin');
         Route::post('/tahun', [AdminController::class, 'addTahun'])->name('addTahun')->middleware('admin');
+
     });
 });
 
