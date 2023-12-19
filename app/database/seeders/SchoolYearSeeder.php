@@ -14,7 +14,7 @@ class SchoolYearSeeder extends Seeder
     public function run(): void
     {
         SchoolYear::create([
-            'school_year' => '2023 / Genap',
+            'school_year' => '2023 / Ganjil',
         ]);
     }
 }
