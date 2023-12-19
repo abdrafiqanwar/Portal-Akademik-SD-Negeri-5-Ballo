@@ -51,7 +51,7 @@
                 <div class="col-md-4">
                     <div class="input-group">
                         <input name='user_number' type="text" class="form-control border-secondary"
-                            placeholder="Masukkan Nama Guru/Siswa" aria-label="Username" aria-describedby="basic-addon1">
+                            placeholder="Masukkan Nip/Nis" aria-label="Username" aria-describedby="basic-addon1">
                     </div>
                 </div>
                 <div class="col-md-2"></div>

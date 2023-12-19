@@ -67,6 +67,22 @@ class AdminController extends Controller
             return redirect()->back()->with('error', 'Data not found. Please check your selections.');
         }
 
+        $existingScore = Score::where([
+            'classess_id' => $class->id,
+            'user_id' => $user->id,
+            'school_years_id' => $schoolYear->id
+        ])->first();
+
+        $existingTeacher = Teacher::where([
+            'classess_id' => $class->id,
+            'user_id' => $user->id,
+            'school_years_id' => $schoolYear->id
+        ])->first();
+
+        if ($existingScore || $existingTeacher) {
+            return redirect()->back()->with('error', 'Data already exists.');
+        }
+
         if ($user->role === 'student') {
 
             $subjects = Subject::all();
