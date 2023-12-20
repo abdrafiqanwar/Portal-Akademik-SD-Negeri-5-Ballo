@@ -45,13 +45,13 @@
                         <img src="{{ asset('img/alert_merah.svg') }}" alt="">
                     </div>
                     <div class="modal-body p-0">
-                        <p class="m-0 mt-1" style="font-weight: bold; font-size: 15px">Apakah Anda yakin ingin menghapus?</p>
-                        <p class="m-0 mt-1" style="font-size: 12px">Data yang telah dihapus tidak dapat dikembalikan</p>
+                        <p class="m-0 mt-1" style="font-weight: bold; font-size: 15px">Are you sure want to delete?</p>
+                        <p class="m-0 mt-1" style="font-size: 12px">Data that has been deleted cannot be restored</p>
                     </div>
                     <div class="p-3">
                         <button type="button" class="btn" data-bs-dismiss="modal"
-                            style="border: 1px #3182FB solid">Tidak</button>
-                        <button type="submit" form="delete-form_{{ $index }}" class="btn btn-danger">Ya</button>
+                            style="border: 1px #3182FB solid">No</button>
+                        <button type="submit" form="delete-form_{{ $index }}" class="btn btn-danger">Yes</button>
                     </div>
                 </center>
             </div>
