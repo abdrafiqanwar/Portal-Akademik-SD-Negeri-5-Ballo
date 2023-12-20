@@ -36,7 +36,7 @@
   </form>
     <div>
       <center>
-        <img src="{{ asset('img/no_data_rekap.svg') }}" alt="" class="mt-4">
+        <img src="{{ asset('img/no_data_murid.svg') }}" alt="" class="mt-4">
       </center>
     </div>
 </div>
